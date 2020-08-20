@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!---
+  Black Mini PWA
+  https://github.com/techaurelian/BlackMiniPWA
+
+  Copyright (c) 2018-2020 techaurelian. All rights reserved.
+  Licensed under the MIT license.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Black Mini PWA</title>
+  <meta name="description" content="The simplest Progressive Web App ever? It's just a black window / screen, but it can be used to test PWA support on any browser and platform. Other uses?">
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#000000" />
+  <link rel="apple-touch-icon" href="/images/icons/blackminipwa-apple-touch-icon.png">
+
+  <style>
+    body {
+      background: black;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- We need some content for the Lighthouse audit to pass. It's black on black, so it's invisible. -->
+  <p>The Simplest Progressive Web App Ever?</p>
+
+  <script>
+    // When running as PWA, clear the document title using an invisible (zero-width) control character
+    if (navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) {
+      document.title = "\u200E";
+    }
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</body>
+
+</html>
