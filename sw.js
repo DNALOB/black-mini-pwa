@@ -1,14 +1,13 @@
 /*
  *
  *  Black Mini PWA
- *  https://github.com/techaurelian/BlackMiniPWA
- * 
- *  Copyright (c) 2020 techaurelian. All rights reserved. 
+ *  Copyright (c) 2018-2020 techaurelian. All rights reserved. 
  *  Licensed under the MIT license.
+ *  https://techaurelian.com
  *
  */
 
-const curCacheVersion = "2";
+const curCacheVersion = "3";
 const curCacheName = `blackminipwa-${curCacheVersion}`;
 const urlsToCache = [
   '/',
